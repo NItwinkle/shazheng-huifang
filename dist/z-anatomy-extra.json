@@ -1,0 +1,1730 @@
+{
+  "schemaVersion": 1,
+  "version": "extra-catalogue-51",
+  "modelId": "z-anatomy:c4a771950fa5357489c7efb530ca671aa9628bda9d9e86ec2f3dc39a3bd2cf40",
+  "medicalReview": "not-reviewed",
+  "catalogue": [
+    {
+      "name": "太阳",
+      "code": "EX-HN5",
+      "chapter": 15,
+      "meridian": "经外奇穴（补充）",
+      "location": "在头部，眉梢与目外眦之间，向后约一横指（中指）的凹陷中。",
+      "sourceType": "extra-reference",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "laterality": "bilateral",
+      "codeSystem": "common-extra-point-code",
+      "notes": "一横指在模型中仅作候选距离；不是固定厘米数或经专业校准的同身寸。",
+      "section": "7.1.4",
+      "pdfPage": 6,
+      "standardMember": true
+    },
+    {
+      "name": "聚泉",
+      "code": "EX-HN10",
+      "chapter": 15,
+      "meridian": "经外奇穴（补充）",
+      "location": "在口腔内，舌背正中缝的中点处。",
+      "sourceType": "extra-reference",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "laterality": "mid",
+      "codeSystem": "common-extra-point-code",
+      "notes": "当前闭口人体模型不含可用的舌背表面，只展示定位说明和舌背示意，不生成面部代理点。",
+      "section": "7.1.9",
+      "pdfPage": 6,
+      "region": "head",
+      "standardMember": true
+    },
+    {
+      "name": "崇骨",
+      "code": "X-CHONGGU",
+      "chapter": 15,
+      "meridian": "经外奇穴（补充）",
+      "location": "在项部，后正中线上，第6颈椎棘突下凹陷中。",
+      "sourceType": "extra-reference",
+      "standardUrl": "https://www.sina.cn/news/detail/5322687390157635.html",
+      "sourceLabel": "湖南中医药大学官方账号科普（转载页面）",
+      "laterality": "mid",
+      "codeSystem": "internal-project-id",
+      "notes": "X-CHONGGU为项目内部标识，不冒称国家标准编号。",
+      "section": "经外奇穴参考",
+      "pdfPage": null
+    },
+    {
+      "name": "接脊",
+      "code": "X-JIEJI",
+      "chapter": 15,
+      "meridian": "经外奇穴（补充）",
+      "location": "在背部，第12胸椎棘突下凹陷中。",
+      "sourceType": "extra-reference",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "laterality": "mid",
+      "codeSystem": "internal-project-id",
+      "notes": "X-JIEJI为项目内部标识，不冒称国家标准编号。",
+      "section": "7.3.4",
+      "pdfPage": 8,
+      "standardMember": true
+    },
+    {
+      "name": "下极俞",
+      "code": "X-XIAJIYU",
+      "chapter": 15,
+      "meridian": "经外奇穴（补充）",
+      "location": "在腰部，后正中线上，第3腰椎棘突下凹陷中。",
+      "sourceType": "extra-reference",
+      "standardUrl": "https://toyoryoho.or.jp/files/news/fl00000796-01.pdf",
+      "sourceLabel": "东洋疗法学校协会教材配套解说",
+      "laterality": "mid",
+      "codeSystem": "internal-project-id",
+      "notes": "X-XIAJIYU为项目内部标识，不冒称国家标准编号；采用第三腰椎棘突下定位。",
+      "section": "经外奇穴参考",
+      "pdfPage": null
+    },
+    {
+      "name": "定喘",
+      "code": "EX-B1",
+      "chapter": 15,
+      "meridian": "经外奇穴（补充）",
+      "location": "在脊柱区，横平第7颈椎棘突下，后正中线旁开0.5寸。",
+      "sourceType": "extra-reference",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "laterality": "bilateral",
+      "codeSystem": "standard-extra-point-code",
+      "notes": "",
+      "section": "7.3.1",
+      "pdfPage": 8,
+      "standardMember": true
+    },
+    {
+      "name": "夹脊",
+      "code": "EX-B2",
+      "chapter": 15,
+      "meridian": "经外奇穴（补充）",
+      "location": "在脊柱区，第1胸椎至第5腰椎棘突下两侧，后正中线旁开0.5寸，一侧17穴。",
+      "sourceType": "extra-reference",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "notes": "夹脊是多穴群，不是一个固定圆点；本次补充目录和定位范围，尚未制作34点分层选择。",
+      "section": "7.3.2",
+      "pdfPage": 8,
+      "region": "back",
+      "standardMember": true
+    },
+    {
+      "name": "阿是穴",
+      "code": "X-ASHI",
+      "chapter": 16,
+      "meridian": "阿是穴（非固定反应点）",
+      "location": "无固定解剖位置，依压痛点或其他病理反应点确定。",
+      "sourceType": "extra-reference",
+      "standardUrl": "https://www.singaporetcm.com/wp-content/uploads/2025/09/TCM-Journal-38.pdf",
+      "sourceLabel": "新加坡中医药研究院期刊综述",
+      "laterality": "nonfixed",
+      "codeSystem": "internal-project-id",
+      "notes": "非固定反应点，不在标准人体上绘制一个固定坐标。",
+      "section": "经外奇穴参考",
+      "pdfPage": null,
+      "region": "all"
+    },
+    {
+      "name": "四神聪",
+      "code": "EX-HN1",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在头部，百会（GV20）前后左右各旁开1寸，共4穴。",
+      "section": "7.1.1",
+      "pdfPage": 6,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "当阳",
+      "code": "EX-HN2",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在头部，瞳孔直上，前发际上1寸。",
+      "section": "7.1.2",
+      "pdfPage": 6,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "鱼腰",
+      "code": "EX-HN4",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在头部，瞳孔直上，眉毛中。",
+      "section": "7.1.3",
+      "pdfPage": 6,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "耳尖",
+      "code": "EX-HN6",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在耳区，在外耳轮的最高点。",
+      "section": "7.1.5",
+      "pdfPage": 6,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "球后",
+      "code": "EX-HN7",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在面部，眼球与眶下缘之间，眶下缘外1/4与内3/4交界处。",
+      "section": "7.1.6",
+      "pdfPage": 6,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "上迎香",
+      "code": "EX-HN8",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在面部，鼻翼软骨与鼻甲的交界处，近鼻翼沟上端处。",
+      "section": "7.1.7",
+      "pdfPage": 6,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "内迎香",
+      "code": "EX-HN9",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在鼻孔内，鼻翼软骨与鼻甲交界的粘膜处。",
+      "section": "7.1.8",
+      "pdfPage": 6,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "海泉",
+      "code": "EX-HN11",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在口腔内，舌下系带中点处。",
+      "section": "7.1.10",
+      "pdfPage": 6,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "金津玉液",
+      "code": "EX-HN12",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在口腔内，舌下系带两侧的静脉上，左曰金津，右曰玉液。",
+      "section": "7.1.11",
+      "pdfPage": 6,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true,
+      "codes": [
+        "EX-HN12",
+        "EX-HN13"
+      ],
+      "aliases": [
+        "金津",
+        "玉液"
+      ]
+    },
+    {
+      "name": "翳明",
+      "code": "EX-HN14",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在项部，翳风（TE17）后1寸。",
+      "section": "7.1.12",
+      "pdfPage": 6,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "安眠",
+      "code": "GB40997-7.1.13",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-section-id",
+      "location": "在项部，当翳风（TE17）和风池（GB20）连线的中点。",
+      "section": "7.1.13",
+      "pdfPage": 6,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "牵正",
+      "code": "GB40997-7.1.14",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-section-id",
+      "location": "在面颊部，耳垂前方0.5～1寸，与耳垂中点相平处。",
+      "section": "7.1.14",
+      "pdfPage": 7,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "新设",
+      "code": "GB40997-7.1.15",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-section-id",
+      "location": "在项部，当第4颈椎横突端，斜方肌外缘。",
+      "section": "7.1.15",
+      "pdfPage": 7,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "颈百劳",
+      "code": "EX-HN15",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在项部，第7颈椎棘突直上2寸，后正中线旁开1寸。",
+      "section": "7.1.16",
+      "pdfPage": 7,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "血压点",
+      "code": "GB40997-7.1.17",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-section-id",
+      "location": "在项部，第6、7颈椎棘突间旁开2寸。",
+      "section": "7.1.17",
+      "pdfPage": 7,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "提托",
+      "code": "GB40997-7.2.1",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-section-id",
+      "location": "在下腹部，脐中下3寸，前正中线旁开4寸。",
+      "section": "7.2.1",
+      "pdfPage": 8,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "子宫",
+      "code": "EX-CA1",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在下腹部，脐中下4寸，前正中线旁开3寸。",
+      "section": "7.2.2",
+      "pdfPage": 8,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "胃脘下俞",
+      "code": "EX-B3",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在脊柱区，横平第8胸椎棘突下，后正中线旁开1.5寸。",
+      "section": "7.3.3",
+      "pdfPage": 8,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "痞根",
+      "code": "EX-B4",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在腰区，横平第1腰椎棘突下，后正中线旁开3.5寸。",
+      "section": "7.3.5",
+      "pdfPage": 9,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "腰宜",
+      "code": "EX-B6",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在腰区，横平第4腰椎棘突下，后正中线旁开3寸。",
+      "section": "7.3.6",
+      "pdfPage": 9,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "腰眼",
+      "code": "EX-B7",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在腰区，横平第4腰椎棘突下，后正中线旁开约3.5寸凹陷中。",
+      "section": "7.3.7",
+      "pdfPage": 9,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "十七椎",
+      "code": "EX-B8",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在腰区，第5腰椎棘突下凹陷中。",
+      "section": "7.3.8",
+      "pdfPage": 9,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "肩前",
+      "code": "GB40997-7.4.1",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-section-id",
+      "location": "在肩部，当腋前皱襞尽端直上1.5寸处。",
+      "section": "7.4.1",
+      "pdfPage": 9,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "肘尖",
+      "code": "EX-UE1",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在肘后区，尺骨鹰嘴的尖端。",
+      "section": "7.5.1",
+      "pdfPage": 9,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "二白",
+      "code": "EX-UE2",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在前臂前区，腕掌侧远端横纹上4寸，桡侧腕屈肌腱的两侧，一肢2穴。",
+      "section": "7.5.2",
+      "pdfPage": 9,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "中泉",
+      "code": "EX-UE3",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在前臂后区，腕背侧远端横纹上，指总伸肌腱桡侧的凹陷中。",
+      "section": "7.5.3",
+      "pdfPage": 10,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "中魁",
+      "code": "EX-UE4",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在手指，中指背面，近侧指间关节的中点处。",
+      "section": "7.5.4",
+      "pdfPage": 10,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "大骨空",
+      "code": "EX-UE5",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在手指，拇指背面，掌指关节的中点处。",
+      "section": "7.5.5",
+      "pdfPage": 10,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "小骨空",
+      "code": "EX-UE6",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在手指，小指背面，近侧指间关节的中点处。",
+      "section": "7.5.6",
+      "pdfPage": 10,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "腰痛点",
+      "code": "EX-UE7",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在手背，第2、3掌骨间及第4、5掌骨间，腕背侧远端横纹与掌指关节的中点处，一手2穴。",
+      "section": "7.5.7",
+      "pdfPage": 10,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "外劳宫",
+      "code": "EX-UE8",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在手背，第2、3掌骨间，掌指关节后0.5寸（指寸）凹陷中。",
+      "section": "7.5.8",
+      "pdfPage": 10,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "八邪",
+      "code": "EX-UE9",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在手背，第1～5指间，指蹼缘后方赤白肉际处，左右共8穴。",
+      "section": "7.5.9",
+      "pdfPage": 10,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "四缝",
+      "code": "EX-UE10",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在手指，第2～5指掌面的近侧指间关节横纹的中央，一手4穴。",
+      "section": "7.5.10",
+      "pdfPage": 10,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "十宣",
+      "code": "EX-UE11",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在手指，十指尖端，距指甲游离缘0.1寸（指寸），左右共10穴。",
+      "section": "7.5.11",
+      "pdfPage": 10,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "髋骨",
+      "code": "EX-LE1",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在股前区，梁丘（ST34）两旁各1.5寸，一肢2穴。",
+      "section": "7.6.1",
+      "pdfPage": 10,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "鹤顶",
+      "code": "EX-LE2",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在膝前区，髌底中点的上方凹陷中。",
+      "section": "7.6.2",
+      "pdfPage": 10,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "百虫窝",
+      "code": "EX-LE3",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在股前区，髌底内侧端上3寸。",
+      "section": "7.6.3",
+      "pdfPage": 10,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "内膝眼",
+      "code": "EX-LE4",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在膝部，髌韧带内侧凹陷处的中央。",
+      "section": "7.6.4",
+      "pdfPage": 10,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "胆囊",
+      "code": "EX-LE6",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在小腿外侧，腓骨小头直下2寸。",
+      "section": "7.6.5",
+      "pdfPage": 10,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "阑尾",
+      "code": "EX-LE7",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在小腿外侧，髌韧带外侧凹陷下5寸，胫骨前嵴外一横指（中指）。",
+      "section": "7.6.6",
+      "pdfPage": 10,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "内踝尖",
+      "code": "EX-LE8",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在踝区，内踝的最凸起处。",
+      "section": "7.6.7",
+      "pdfPage": 10,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "外踝尖",
+      "code": "EX-LE9",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在踝区，外踝的最凸起处。",
+      "section": "7.6.8",
+      "pdfPage": 11,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "八风",
+      "code": "EX-LE10",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在足背，第1～5趾间，趾蹼缘后方赤白肉际处，左右共8穴。",
+      "section": "7.6.9",
+      "pdfPage": 11,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "里内庭",
+      "code": "GB40997-7.6.10",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-section-id",
+      "location": "在足底，第2、3跖趾关节前方凹陷中。",
+      "section": "7.6.10",
+      "pdfPage": 11,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "独阴",
+      "code": "EX-LE11",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在足底，第2趾的跖侧远端趾间关节的横纹中点。",
+      "section": "7.6.11",
+      "pdfPage": 11,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    },
+    {
+      "name": "气端",
+      "code": "EX-LE12",
+      "chapter": 15,
+      "meridian": "经外奇穴",
+      "laterality": "group",
+      "codeSystem": "standard-extra-point-code",
+      "location": "在足趾，十趾端的中央，距趾甲游离缘0.1寸（指寸），左右共10穴。",
+      "section": "7.6.12",
+      "pdfPage": 11,
+      "sourceType": "extra-reference",
+      "sourceLabel": "GB/T 40997—2021公开文本",
+      "standardUrl": "https://zynj.shutcm.edu.cn/_upload/article/files/66/b4/b34a95604d04b0bf686251b2d317/72823dbe-8f55-4e2b-b98b-ff106160f598.pdf",
+      "standardMember": true
+    }
+  ],
+  "points": {
+    "太阳": {
+      "code": "EX-HN5",
+      "location": "在颞部，眉梢与目外眦之间向后约一横指的凹陷处。",
+      "rule": {
+        "kind": "engineering",
+        "summary": "眉梢与目外眦中间向后约一横指；18mm仅为当前模型工程候选偏移",
+        "sources": [
+          "Eyebrow.l",
+          "Orbital region.l",
+          "Temporal region.l"
+        ],
+        "surfaceRole": "skin-candidate"
+      },
+      "sides": {
+        "L": {
+          "position": [
+            0.05603259801864624,
+            1.603858470916748,
+            0.06690163165330887
+          ],
+          "normal": [
+            0.7357701063156128,
+            -0.04378905147314072,
+            0.6758142113685608
+          ],
+          "status": "algorithmic-candidate-unreviewed",
+          "region": "head",
+          "view": "left",
+          "focusDirection": [
+            0.9701425433158875,
+            0.0,
+            0.24253563582897186
+          ],
+          "focusVisibilityChecked": true,
+          "guideIds": [],
+          "ruleKind": "engineering",
+          "surfaceRole": "skin-candidate",
+          "method": "extra-point-local-anatomy-candidate",
+          "measurement": {
+            "basis": "眉梢与目外眦中间向后约一横指；18mm仅为当前模型工程候选偏移",
+            "sources": [
+              "Eyebrow.l",
+              "Orbital region.l",
+              "Temporal region.l"
+            ],
+            "seed": [
+              0.05961223691701889,
+              1.603858470916748,
+              0.06779654324054718
+            ],
+            "requestedNormal": [
+              0.9701425433158875,
+              0.0,
+              0.24253563582897186
+            ],
+            "projection": "local-directional-skin-ray",
+            "seedDisplacementMeters": 0.003689807748705472
+          },
+          "unresolved": [
+            "经外奇穴候选，模型标志与局部凹陷尚待专业复核"
+          ],
+          "surfaceResidual": 3.725290298461914e-09
+        },
+        "R": {
+          "position": [
+            -0.05603259801864624,
+            1.603858470916748,
+            0.06690163165330887
+          ],
+          "normal": [
+            -0.7357701063156128,
+            -0.04378905147314072,
+            0.6758142113685608
+          ],
+          "status": "algorithmic-candidate-unreviewed",
+          "region": "head",
+          "view": "right",
+          "focusDirection": [
+            -0.9701425433158875,
+            0.0,
+            0.24253563582897186
+          ],
+          "focusVisibilityChecked": true,
+          "guideIds": [],
+          "ruleKind": "engineering",
+          "surfaceRole": "skin-candidate",
+          "method": "extra-point-local-anatomy-candidate",
+          "measurement": {
+            "basis": "眉梢与目外眦中间向后约一横指；18mm仅为当前模型工程候选偏移",
+            "sources": [
+              "Eyebrow.l",
+              "Orbital region.l",
+              "Temporal region.l"
+            ],
+            "seed": [
+              -0.05961223691701889,
+              1.603858470916748,
+              0.06779654324054718
+            ],
+            "requestedNormal": [
+              -0.9701425433158875,
+              0.0,
+              0.24253563582897186
+            ],
+            "projection": "local-directional-skin-ray",
+            "seedDisplacementMeters": 0.003689807748705472
+          },
+          "unresolved": [
+            "经外奇穴候选，模型标志与局部凹陷尚待专业复核"
+          ],
+          "surfaceResidual": 3.161013495400766e-08
+        }
+      }
+    },
+    "聚泉": {
+      "code": "EX-HN10",
+      "location": "在口腔内，舌背正中缝的中点处。",
+      "rule": {
+        "kind": "unavailable",
+        "surfaceRole": "no-corresponding-model-surface",
+        "summary": "舌背正中缝中点；当前闭口模型无舌背网格，不生成外部替代点",
+        "diagram": "tongue-dorsal-midpoint"
+      },
+      "sides": {}
+    },
+    "崇骨": {
+      "code": "X-CHONGGU",
+      "location": "在项部，后正中线上，第6颈椎棘突下凹陷中。",
+      "rule": {
+        "kind": "engineering",
+        "summary": "C6命名椎骨棘突后端下缘候选；2mm下方间隙仍待专业确认",
+        "sources": [
+          "Vertebra C6"
+        ],
+        "surfaceRole": "skin-candidate"
+      },
+      "sides": {
+        "mid": {
+          "position": [
+            0.0,
+            1.4544854164123535,
+            -0.08982187509536743
+          ],
+          "normal": [
+            0.0,
+            0.687315821647644,
+            -0.7263587117195129
+          ],
+          "status": "algorithmic-candidate-unreviewed",
+          "region": "neck",
+          "view": "back",
+          "focusDirection": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "focusVisibilityChecked": true,
+          "guideIds": [],
+          "ruleKind": "engineering",
+          "surfaceRole": "skin-candidate",
+          "method": "extra-point-local-anatomy-candidate",
+          "measurement": {
+            "basis": "C6命名椎骨棘突后端下缘候选；2mm下方间隙仍待专业确认",
+            "sources": [
+              "Vertebra C6"
+            ],
+            "seed": [
+              0.0,
+              1.4544854164123535,
+              -0.06676751375198364
+            ],
+            "requestedNormal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "projection": "local-directional-skin-ray",
+            "seedDisplacementMeters": 0.02305436144077599
+          },
+          "unresolved": [
+            "经外奇穴候选，模型标志与局部凹陷尚待专业复核"
+          ],
+          "surfaceResidual": 0.0
+        }
+      }
+    },
+    "接脊": {
+      "code": "X-JIEJI",
+      "location": "在背部，后正中线上，第12胸椎棘突下凹陷中。",
+      "rule": {
+        "kind": "engineering",
+        "summary": "T12命名椎骨棘突后端下缘候选；2mm下方间隙仍待专业确认",
+        "sources": [
+          "Vertebra T12"
+        ],
+        "surfaceRole": "skin-candidate"
+      },
+      "sides": {
+        "mid": {
+          "position": [
+            0.0,
+            1.1133915185928345,
+            -0.08949995040893555
+          ],
+          "normal": [
+            8.467690349789336e-05,
+            -0.10521151125431061,
+            -0.9944498538970947
+          ],
+          "status": "algorithmic-candidate-unreviewed",
+          "region": "back",
+          "view": "back",
+          "focusDirection": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "focusVisibilityChecked": true,
+          "guideIds": [],
+          "ruleKind": "engineering",
+          "surfaceRole": "skin-candidate",
+          "method": "extra-point-local-anatomy-candidate",
+          "measurement": {
+            "basis": "T12命名椎骨棘突后端下缘候选；2mm下方间隙仍待专业确认",
+            "sources": [
+              "Vertebra T12"
+            ],
+            "seed": [
+              0.0,
+              1.1133915185928345,
+              -0.08949995040893555
+            ],
+            "requestedNormal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "projection": "named-vertebral-posterior-ray"
+          },
+          "unresolved": [
+            "经外奇穴候选，模型标志与局部凹陷尚待专业复核"
+          ],
+          "surfaceResidual": 8.940696716308594e-08
+        }
+      }
+    },
+    "下极俞": {
+      "code": "X-XIAJIYU",
+      "location": "在腰部，后正中线上，第3腰椎棘突下凹陷中。",
+      "rule": {
+        "kind": "engineering",
+        "summary": "L3命名椎骨棘突后端下缘候选；2mm下方间隙仍待专业确认",
+        "sources": [
+          "Vertebra L3"
+        ],
+        "surfaceRole": "skin-candidate"
+      },
+      "sides": {
+        "mid": {
+          "position": [
+            0.0,
+            1.0231969356536865,
+            -0.09059929847717285
+          ],
+          "normal": [
+            -0.0,
+            0.12187086045742035,
+            -0.9925459623336792
+          ],
+          "status": "algorithmic-candidate-unreviewed",
+          "region": "back",
+          "view": "back",
+          "focusDirection": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "focusVisibilityChecked": true,
+          "guideIds": [],
+          "ruleKind": "engineering",
+          "surfaceRole": "skin-candidate",
+          "method": "extra-point-local-anatomy-candidate",
+          "measurement": {
+            "basis": "L3命名椎骨棘突后端下缘候选；2mm下方间隙仍待专业确认",
+            "sources": [
+              "Vertebra L3"
+            ],
+            "seed": [
+              0.0,
+              1.0231969356536865,
+              -0.09059929847717285
+            ],
+            "requestedNormal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "projection": "named-vertebral-posterior-ray"
+          },
+          "unresolved": [
+            "经外奇穴候选，模型标志与局部凹陷尚待专业复核"
+          ],
+          "surfaceResidual": 7.450580596923828e-09
+        }
+      }
+    },
+    "定喘": {
+      "code": "EX-B1",
+      "location": "在脊柱区，横平第7颈椎棘突下，后正中线旁开0.5寸。",
+      "rule": {
+        "kind": "engineering",
+        "summary": "C7命名椎骨棘突后端下缘候选；2mm下方间隙仍待专业确认",
+        "sources": [
+          "Vertebra C7"
+        ],
+        "surfaceRole": "skin-candidate"
+      },
+      "sides": {
+        "L": {
+          "position": [
+            0.010120471939444542,
+            1.4397269487380981,
+            -0.09647834300994873
+          ],
+          "normal": [
+            0.08428872376680374,
+            0.4005109369754791,
+            -0.912406861782074
+          ],
+          "status": "algorithmic-candidate-unreviewed",
+          "region": "back",
+          "view": "back",
+          "focusDirection": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "focusVisibilityChecked": true,
+          "guideIds": [],
+          "ruleKind": "engineering",
+          "surfaceRole": "skin-candidate",
+          "method": "extra-point-local-anatomy-candidate",
+          "measurement": {
+            "basis": "C7命名椎骨棘突后端下缘候选；2mm下方间隙仍待专业确认",
+            "sources": [
+              "Vertebra C7"
+            ],
+            "seed": [
+              0.010120471939444542,
+              1.4397269487380981,
+              -0.09682399034500122
+            ],
+            "requestedNormal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "projection": "named-vertebral-posterior-ray"
+          },
+          "unresolved": [
+            "经外奇穴候选，模型标志与局部凹陷尚待专业复核"
+          ],
+          "surfaceResidual": 1.3339712268134463e-07
+        },
+        "R": {
+          "position": [
+            -0.010120471939444542,
+            1.4397269487380981,
+            -0.09647828340530396
+          ],
+          "normal": [
+            -0.08429230004549026,
+            0.40051183104515076,
+            -0.9124062657356262
+          ],
+          "status": "algorithmic-candidate-unreviewed",
+          "region": "back",
+          "view": "back",
+          "focusDirection": [
+            -0.0,
+            0.0,
+            -1.0
+          ],
+          "focusVisibilityChecked": true,
+          "guideIds": [],
+          "ruleKind": "engineering",
+          "surfaceRole": "skin-candidate",
+          "method": "extra-point-local-anatomy-candidate",
+          "measurement": {
+            "basis": "C7命名椎骨棘突后端下缘候选；2mm下方间隙仍待专业确认",
+            "sources": [
+              "Vertebra C7"
+            ],
+            "seed": [
+              -0.010120471939444542,
+              1.4397269487380981,
+              -0.09682399034500122
+            ],
+            "requestedNormal": [
+              -0.0,
+              0.0,
+              -1.0
+            ],
+            "projection": "named-vertebral-posterior-ray"
+          },
+          "unresolved": [
+            "经外奇穴候选，模型标志与局部凹陷尚待专业复核"
+          ],
+          "surfaceResidual": 1.5017125321037383e-08
+        }
+      }
+    },
+    "夹脊": {
+      "code": "EX-B2",
+      "location": "在脊柱区，第1胸椎至第5腰椎棘突下两侧，后正中线旁开0.5寸，一侧17穴。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-a-single-fixed-point",
+        "summary": "夹脊是多穴群，不是一个固定圆点；本次补充目录和定位范围，尚未制作34点分层选择。"
+      },
+      "sides": {}
+    },
+    "阿是穴": {
+      "code": "X-ASHI",
+      "location": "无固定解剖位置，依压痛点或其他病理反应点确定。",
+      "rule": {
+        "kind": "nonfixed",
+        "surfaceRole": "not-a-single-fixed-point",
+        "summary": "非固定反应点，不在标准人体上绘制一个固定坐标。"
+      },
+      "sides": {}
+    },
+    "四神聪": {
+      "code": "EX-HN1",
+      "location": "在头部，百会（GV20）前后左右各旁开1寸，共4穴。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "当阳": {
+      "code": "EX-HN2",
+      "location": "在头部，瞳孔直上，前发际上1寸。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "鱼腰": {
+      "code": "EX-HN4",
+      "location": "在头部，瞳孔直上，眉毛中。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "耳尖": {
+      "code": "EX-HN6",
+      "location": "在耳区，在外耳轮的最高点。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "球后": {
+      "code": "EX-HN7",
+      "location": "在面部，眼球与眶下缘之间，眶下缘外1/4与内3/4交界处。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "上迎香": {
+      "code": "EX-HN8",
+      "location": "在面部，鼻翼软骨与鼻甲的交界处，近鼻翼沟上端处。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "内迎香": {
+      "code": "EX-HN9",
+      "location": "在鼻孔内，鼻翼软骨与鼻甲交界的粘膜处。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "海泉": {
+      "code": "EX-HN11",
+      "location": "在口腔内，舌下系带中点处。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "金津玉液": {
+      "code": "EX-HN12",
+      "location": "在口腔内，舌下系带两侧的静脉上，左曰金津，右曰玉液。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "翳明": {
+      "code": "EX-HN14",
+      "location": "在项部，翳风（TE17）后1寸。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "安眠": {
+      "code": "GB40997-7.1.13",
+      "location": "在项部，当翳风（TE17）和风池（GB20）连线的中点。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "牵正": {
+      "code": "GB40997-7.1.14",
+      "location": "在面颊部，耳垂前方0.5～1寸，与耳垂中点相平处。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "新设": {
+      "code": "GB40997-7.1.15",
+      "location": "在项部，当第4颈椎横突端，斜方肌外缘。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "颈百劳": {
+      "code": "EX-HN15",
+      "location": "在项部，第7颈椎棘突直上2寸，后正中线旁开1寸。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "血压点": {
+      "code": "GB40997-7.1.17",
+      "location": "在项部，第6、7颈椎棘突间旁开2寸。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "提托": {
+      "code": "GB40997-7.2.1",
+      "location": "在下腹部，脐中下3寸，前正中线旁开4寸。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "子宫": {
+      "code": "EX-CA1",
+      "location": "在下腹部，脐中下4寸，前正中线旁开3寸。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "胃脘下俞": {
+      "code": "EX-B3",
+      "location": "在脊柱区，横平第8胸椎棘突下，后正中线旁开1.5寸。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "痞根": {
+      "code": "EX-B4",
+      "location": "在腰区，横平第1腰椎棘突下，后正中线旁开3.5寸。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "腰宜": {
+      "code": "EX-B6",
+      "location": "在腰区，横平第4腰椎棘突下，后正中线旁开3寸。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "腰眼": {
+      "code": "EX-B7",
+      "location": "在腰区，横平第4腰椎棘突下，后正中线旁开约3.5寸凹陷中。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "十七椎": {
+      "code": "EX-B8",
+      "location": "在腰区，第5腰椎棘突下凹陷中。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "肩前": {
+      "code": "GB40997-7.4.1",
+      "location": "在肩部，当腋前皱襞尽端直上1.5寸处。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "肘尖": {
+      "code": "EX-UE1",
+      "location": "在肘后区，尺骨鹰嘴的尖端。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "二白": {
+      "code": "EX-UE2",
+      "location": "在前臂前区，腕掌侧远端横纹上4寸，桡侧腕屈肌腱的两侧，一肢2穴。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "中泉": {
+      "code": "EX-UE3",
+      "location": "在前臂后区，腕背侧远端横纹上，指总伸肌腱桡侧的凹陷中。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "中魁": {
+      "code": "EX-UE4",
+      "location": "在手指，中指背面，近侧指间关节的中点处。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "大骨空": {
+      "code": "EX-UE5",
+      "location": "在手指，拇指背面，掌指关节的中点处。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "小骨空": {
+      "code": "EX-UE6",
+      "location": "在手指，小指背面，近侧指间关节的中点处。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "腰痛点": {
+      "code": "EX-UE7",
+      "location": "在手背，第2、3掌骨间及第4、5掌骨间，腕背侧远端横纹与掌指关节的中点处，一手2穴。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "外劳宫": {
+      "code": "EX-UE8",
+      "location": "在手背，第2、3掌骨间，掌指关节后0.5寸（指寸）凹陷中。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "八邪": {
+      "code": "EX-UE9",
+      "location": "在手背，第1～5指间，指蹼缘后方赤白肉际处，左右共8穴。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "四缝": {
+      "code": "EX-UE10",
+      "location": "在手指，第2～5指掌面的近侧指间关节横纹的中央，一手4穴。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "十宣": {
+      "code": "EX-UE11",
+      "location": "在手指，十指尖端，距指甲游离缘0.1寸（指寸），左右共10穴。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "髋骨": {
+      "code": "EX-LE1",
+      "location": "在股前区，梁丘（ST34）两旁各1.5寸，一肢2穴。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "鹤顶": {
+      "code": "EX-LE2",
+      "location": "在膝前区，髌底中点的上方凹陷中。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "百虫窝": {
+      "code": "EX-LE3",
+      "location": "在股前区，髌底内侧端上3寸。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "内膝眼": {
+      "code": "EX-LE4",
+      "location": "在膝部，髌韧带内侧凹陷处的中央。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "胆囊": {
+      "code": "EX-LE6",
+      "location": "在小腿外侧，腓骨小头直下2寸。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "阑尾": {
+      "code": "EX-LE7",
+      "location": "在小腿外侧，髌韧带外侧凹陷下5寸，胫骨前嵴外一横指（中指）。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "内踝尖": {
+      "code": "EX-LE8",
+      "location": "在踝区，内踝的最凸起处。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "外踝尖": {
+      "code": "EX-LE9",
+      "location": "在踝区，外踝的最凸起处。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "八风": {
+      "code": "EX-LE10",
+      "location": "在足背，第1～5趾间，趾蹼缘后方赤白肉际处，左右共8穴。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "里内庭": {
+      "code": "GB40997-7.6.10",
+      "location": "在足底，第2、3跖趾关节前方凹陷中。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "独阴": {
+      "code": "EX-LE11",
+      "location": "在足底，第2趾的跖侧远端趾间关节的横纹中点。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    },
+    "气端": {
+      "code": "EX-LE12",
+      "location": "在足趾，十趾端的中央，距趾甲游离缘0.1寸（指寸），左右共10穴。",
+      "rule": {
+        "kind": "catalogue-only",
+        "surfaceRole": "not-yet-mapped",
+        "summary": "已收录标准定位；三维落点尚未标定，不使用区域中心替代。"
+      },
+      "sides": {}
+    }
+  },
+  "guides": {},
+  "standardCatalogueCount": 51
+}

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="痧证汇方：按疾病名称检索，查看各分型症状与刮痧方案。">
+  <title>痧证汇方中医刮痧知识管理与可视化系统 V1.0</title>
+  <meta name="application-name" content="痧证汇方中医刮痧知识管理与可视化系统">
+  <meta name="application-version" content="1.0">
+  <link rel="stylesheet" href="styles.css?v=refine2">
+  <link rel="stylesheet" href="ui.css?v=ui4">
+  <link rel="stylesheet" href="search-polish.css?v=compact1">
+  <script type="importmap">
+    {"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/"}}
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#/" aria-label="返回痧证汇方首页">
+      <span class="brand-mark" aria-hidden="true">痧</span>
+      <span><strong>痧证汇方</strong><small>汇诸证刮痧之法，集辨证疗痧之要</small></span>
+    </a>
+    <nav class="top-nav" aria-label="全站导航">
+      <a href="#/" data-nav="home">病症索引</a>
+      <a href="#/atlas" data-nav="atlas">穴位图谱</a>
+      <a href="#/glossary" data-nav="glossary">知识词典</a>
+      <a href="#/compare" data-nav="compare">方案对比 <span id="compareBadge" hidden></span></a>
+    </nav>
+    <div class="header-search">
+      <label class="sr-only" for="globalSearch">搜索疾病名称</label>
+      <input id="globalSearch" type="search" placeholder="搜索疾病名称…" autocomplete="off" aria-controls="searchSuggest" aria-expanded="false">
+      <span aria-hidden="true">⌕</span>
+      <div class="search-suggest" id="searchSuggest" hidden></div>
+    </div>
+  </header>
+  <main id="app" tabindex="-1"></main>
+  <main id="atlasApp" tabindex="-1" hidden></main>
+  <footer class="site-footer"><p>© 痧证汇方 中医刮痧辨证知识库</p><p>本系统刮痧方案仅作中医养生知识学习参考，不能替代医师诊断与治疗。急重症请前往医疗机构就诊。</p></footer>
+  <button type="button" id="backToTop" aria-label="回到顶部" hidden>↑<span>顶部</span></button>
+  <dialog class="book-dialog" id="bookDialog" aria-labelledby="bookDialogTitle">
+    <div class="book-dialog-head"><h2 id="bookDialogTitle">按书籍筛选</h2><button class="book-dialog-close" id="closeBookFilter" type="button" aria-label="关闭书籍筛选">×</button></div>
+    <div class="book-options" id="bookOptions"></div>
+  </dialog>
+  <script src="data.js?v=180"></script>
+  <script src="point-names.js?v=180"></script>
+  <script src="standard-points.js?v=178"></script>
+  <script src="standard-locations.js?v=227"></script>
+  <script src="bone-cun.js?v=227"></script>
+  <script src="model-landmarks.js?v=247"></script>
+  <script src="model-ruler-guides.js?v=235"></script>
+  <script src="atlas-positions.js?v=1"></script>
+  <script src="z-atlas-bridge.js?v=toptools1"></script>
+  <script src="glossary-extra.js?v=refine1"></script>
+  <script src="features.js?v=ui1"></script>
+  <script src="app.js?v=ui5"></script>
+  <script type="module">
+    // The current atlas uses only the registered Z-Anatomy model.
+  </script>
+</body>
+</html>

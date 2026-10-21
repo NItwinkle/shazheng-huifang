@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Z-Anatomy 穴位校准｜痧证汇方</title>
+<link rel="stylesheet" href="z-atlas.css?v=refine2">
+<link rel="stylesheet" href="z-atlas-layout.css?v=focus3">
+<link rel="stylesheet" href="atlas-polish.css?v=toptools1">
+<link rel="stylesheet" href="atlas-toptools.css?v=toptools1">
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/"}}</script></head>
+<body><main class="workspace">
+  <header class="toolbar"><div class="atlas-heading"><span class="kicker">浏览 · 定位 · 阅读</span><h1>穴位图谱</h1></div><div class="browse-controls">
+  <label for="meridian">按经脉浏览<select id="meridian"><option value="all" selected>全部经脉</option><option value="selected">当前穴位所属经脉</option></select></label>
+  <span class="browse-or">或</span><label class="atlas-search" for="search">直接找穴位<input id="search" type="search" list="pointSuggestions" placeholder="穴名 / 编号，如 合谷" autocomplete="off"><datalist id="pointSuggestions"></datalist></label>
+  </div><div class="appearance-control">
+  <label for="layer">显示层<select id="layer" aria-label="显示层"><option value="skin">体表</option><option value="bronze">铜人</option><option value="transparent">透明体表＋骨骼</option><option value="skeleton">骨骼</option><option value="muscles">肌肉＋骨骼</option></select></label>
+  </div></header>
+<section class="model-area" aria-label="解剖模型操作区">
+  <div class="stage" id="stage"><canvas id="model" aria-label="可旋转解剖人体"></canvas><div class="loading" id="loading">Z-ANATOMY<span>正在准备人体模型</span></div>
+  <div class="stage-tools"><div class="tools">
+  <label for="region">部位<select id="region" aria-label="部位"><option value="all">全身</option><option value="head">头面</option><option value="neck">颈项</option><option value="shoulder">肩部</option><option value="chest">胸部</option><option value="abdomen">腹部</option><option value="back">背部</option><option value="upperarm">上臂</option><option value="forearm">前臂</option><option value="hand">手部</option><option value="pelvis">臀骶会阴</option><option value="thigh">大腿</option><option value="leg">小腿</option><option value="foot">足部</option></select></label>
+  <label for="view">视角<select id="view" aria-label="视角"><option value="front">正面</option><option value="back">背面</option><option value="left">左侧</option><option value="right">右侧</option><option value="top">上方</option><option value="bottom">下方</option></select></label>
+  <button id="reset" type="button">重置全身</button><button id="batchView" type="button" disabled>穴位总览</button></div>
+  <div class="display-switches"><label><input id="autoGuides" type="checkbox">骨度尺</label><label><input id="meridianLines" type="checkbox" checked>经穴连线</label></div></div>
+  <div class="stage-context"><span class="context-dot"></span><span id="selectionCaption">选择穴位，查看定位</span></div>
+  <div id="pointChooser" class="point-chooser" role="dialog" aria-label="选择附近穴位" hidden><div class="chooser-head"><strong id="pointChooserTitle">选择穴位</strong><button id="closePointChooser" type="button" aria-label="关闭附近穴位列表">×</button></div><div id="pointChoices"></div><p>放大模型可进一步区分相邻穴位。</p></div>
+  <div class="stage-help" id="stageHelp">拖动旋转 · 滚轮缩放 · 点击平面穴位点查看</div></div>
+  <footer class="model-footer"><span id="loadStatus" role="status">正在加载体表…</span><a href="models/z-anatomy/ATTRIBUTION.md" target="_blank" rel="noopener">模型来源与许可 ↗</a></footer>
+</section>
+<aside class="panel">
+  <div class="detail-heading"><h2>穴位详情</h2><p>点击模型上的穴位，或在上方搜索</p></div>
+  <select id="points" hidden aria-hidden="true" tabindex="-1"></select>
+  <label class="side-control">聚焦侧别<select id="side"><option value="L">人体左侧</option><option value="R">人体右侧</option><option value="mid">正中</option></select></label>
+  <section id="pointDetail" aria-live="polite"></section>
+  <button type="button" id="refocusPoint" class="refocus-point" disabled>重新定位当前穴位</button>
+  <details class="advanced-tools" id="displaySettings"><summary><span>显示设置</span><small>模型外观 · 连线 · 骨度尺 · 侧别</small></summary><div class="settings-content" id="displaySettingsContent"></div></details>
+  <details class="advanced-tools"><summary><span>标定与数据工具</span><small>标注 · 骨度尺 · 导入导出</small></summary><section class="calibration"><h2>体表标定</h2><p class="small">使用上方“聚焦侧别”选择本次标注的一侧。</p>
+  <button id="pin" type="button" disabled>在体表标注当前穴位</button>
+  <button id="undo" type="button" disabled>撤销本次操作</button>
+  <p class="small">仅保存本机待复核草稿。表面法向量用于贴面显示，不是进针方向。</p>
+  <details><summary>人体骨度尺 · 双端点标定</summary><label>区段<select id="ruler"></select></label><button id="drawRuler" type="button" disabled>依次点选两个体表端点</button><button id="clearRuler" type="button">隐藏骨度尺</button><p class="small">端点须按解剖标志人工确定；刻度是该段的比例寸，不是厘米。当前模型尚无经专业复核的端点。</p></details>
+  <div class="io"><button id="export" type="button">导出草稿 JSON</button><label class="import">导入草稿<input id="import" type="file" accept="application/json,.json"></label></div>
+  </section></details>
+  <details class="advanced-tools"><summary><span>解剖结构检索</span><small>查找模型中的骨骼与体表标志</small></summary><section class="structure"><h2>解剖结构</h2><p id="structure">点击体表或骨骼查看源结构名称。</p><label>结构检索<input id="structureSearch" type="search" placeholder="如 Second metacarpal / Rib"></label><select id="structures" aria-label="解剖结构目录"></select><button id="focusStructure" type="button" disabled>聚焦该结构</button></section></details>
+  <p id="editStatus" class="small action-status" role="status"></p>
+  <details class="atlas-about"><summary>图谱数据与阅读说明</summary><p id="batchStatus">正在加载全量候选点…</p><p class="small">连线按穴位顺序辅助浏览，跨区域断开，不代表完整经脉循行。模型用于知识学习与标注，不可据此实施针刺或自行治疗。</p></details>
+</aside></main>
+<script src="standard-points.js?v=178"></script><script src="standard-locations.js?v=227"></script><script src="bone-cun.js?v=227"></script><script type="module" src="z-atlas.js?v=toptools1"></script></body></html>
