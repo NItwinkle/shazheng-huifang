@@ -17,14 +17,21 @@ topFunctions.className='atlas-functions';topFunctions.setAttribute('aria-label',
 topFunctions.append(viewTools,$('refocusPoint'));
 const toolMenus=document.createElement('div');toolMenus.className='atlas-tool-menus';
 document.querySelectorAll('.panel>.advanced-tools,.panel>.atlas-about').forEach(detail=>{
+  const summary=detail.querySelector('summary');summary.setAttribute('aria-label',summary.querySelector('span')?.textContent||summary.textContent);
   const body=document.createElement('div');body.className='top-tool-content';
   [...detail.children].filter(child=>child.tagName!=='SUMMARY').forEach(child=>body.append(child));
   detail.append(body);toolMenus.append(detail);
   detail.addEventListener('toggle',()=>{if(detail.open)toolMenus.querySelectorAll('details').forEach(other=>{if(other!==detail&&other.parentElement===toolMenus)other.open=false;});});
 });
-topFunctions.append(toolMenus);document.querySelector('.toolbar').append(topFunctions);
-document.addEventListener('pointerdown',event=>{if(!toolMenus.contains(event.target))toolMenus.querySelectorAll(':scope>details[open]').forEach(detail=>detail.open=false);});
-document.addEventListener('keydown',event=>{if(event.key==='Escape')toolMenus.querySelectorAll(':scope>details[open]').forEach(detail=>detail.open=false);});
+const moreTools=document.createElement('details');moreTools.className='atlas-more';
+const moreSummary=document.createElement('summary');moreSummary.textContent='更多';moreTools.append(moreSummary,toolMenus);
+topFunctions.append(moreTools);document.querySelector('.toolbar').append(topFunctions);
+const mobileActions=document.createElement('div');mobileActions.className='mobile-atlas-actions';toolMenus.prepend(mobileActions);
+const compactTools=matchMedia('(max-width:600px)');
+function arrangeTools(){if(compactTools.matches)mobileActions.append($('reset'),$('refocusPoint'));else{viewTools.append($('reset'));topFunctions.insertBefore($('refocusPoint'),moreTools);}}
+arrangeTools();compactTools.addEventListener('change',arrangeTools);
+document.addEventListener('pointerdown',event=>{if(!moreTools.contains(event.target)){moreTools.open=false;toolMenus.querySelectorAll(':scope>details[open]').forEach(detail=>detail.open=false);}});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'){moreTools.open=false;toolMenus.querySelectorAll(':scope>details[open]').forEach(detail=>detail.open=false);}});
 $('editStatus').remove();
 const toolStatus=document.createElement('p');toolStatus.id='editStatus';toolStatus.className='small action-status';topFunctions.append(toolStatus);
 const MERIDIAN_COLORS=['#00a6d6','#e89116','#e44c45','#539c3f','#de4c9e','#8656d9','#226ce5','#6475c8','#b53bb0','#009c91','#b3a313','#a76c38','#d8b844','#30bc79'];
@@ -60,7 +67,8 @@ scene.add(studioBase);
 let manifest, modelId, selected='', mode=null, firstEnd=null, paused=false, ready=false;
 let selectionEmphasis=false,markersDirty=true,viewMode='overview',cameraFitPending=false;
 let lastStageWidth=0,lastStageHeight=0;
-let drafts={points:{},rulers:{}}, pendingFocus=decodeURIComponent(location.hash.slice(1));
+const initialAtlasParts=location.hash.slice(1).split('?');
+let drafts={points:{},rulers:{}}, pendingFocus=decodeURIComponent(initialAtlasParts[0]),pendingState=Object.fromEntries(new URLSearchParams(initialAtlasParts[1]||'')),restoringState=false;
 let batch=null;
 const undoHistory=[];
 const records=(window.STANDARD_ACUPOINTS||[]).map(([name,code,chapter])=>({name,code,meridian:window.STANDARD_MERIDIANS?.[chapter-1]||'',...window.STANDARD_LOCATIONS?.[name]}));
@@ -75,7 +83,9 @@ function safeEntry(entry){return entry && ['position','normal'].every(k=>Array.i
 async function loadLayer(name){
   if(layers[name])return layers[name];
   if(promises[name])return promises[name];
-  promises[name]=loader.loadAsync(BASE+name+'.glb').then(g=>{
+  loadingFeedback('下载'+({skin:'体表模型',skeleton:'骨骼模型',muscles:'肌肉模型'}[name]||name));
+  promises[name]=loader.loadAsync(BASE+name+'.glb',event=>loadingFeedback('下载'+({skin:'体表模型',skeleton:'骨骼模型',muscles:'肌肉模型'}[name]||name),event.loaded,event.lengthComputable?event.total:0)).then(g=>{
+    loadingFeedback('模型下载完成，正在解析与配准');
     const group=g.scene;group.visible=false;layers[name]=group;scene.add(group);
     group.traverse(o=>{if(o.isMesh){o.material=o.material.clone();o.material.side=THREE.DoubleSide;o.material.roughness=.8;if(name==='skin'&&/^Eyebrow\./.test(o.userData.sourceName||''))o.material.color.set('#5b4939');}});
     return group;
@@ -182,6 +192,7 @@ function selectPoint(name,{emphasize=true}={}){
     renderer.domElement.dataset.guideCount=0;
     status(candidate?.rule.kind==='unavailable'?'该穴在舌背；当前模型没有舌背网格，不显示面部替代点。详见定位说明和示意图。':['catalogue-only','nonfixed'].includes(candidate?.rule.kind)?candidate.rule.summary:'已聚焦所在区域；该穴尚无新模型坐标。请核对解剖标志后标注，不把区域中心当作穴位。');
   }
+  publishAtlasState();
 }
 function measurementHtml(candidate){
   const r=candidate.rule,lines=[];
@@ -560,15 +571,40 @@ window.addEventListener('message',e=>{
   if(e.data?.type==='z-atlas:pause'){paused=!!e.data.paused;if(!paused)resize();}
   if(e.data?.type==='z-atlas:focus'){if(ready){$('search').value='';options();selectPoint(e.data.name);}else pendingFocus=e.data.name;}
 });
-window.addEventListener('hashchange',()=>{const name=decodeURIComponent(location.hash.slice(1));if(ready)selectPoint(name);else pendingFocus=name;});
+window.addEventListener('hashchange',()=>{const parts=location.hash.slice(1).split('?'),name=decodeURIComponent(parts[0]),state=Object.fromEntries(new URLSearchParams(parts[1]||''));if(ready)restoreAtlasState(name,state);else{pendingFocus=name;pendingState=state;}});
+function publishAtlasState(){
+  if(!ready||restoringState)return;
+  const state={name:selected,view:$('view').value,part:$('region').value,side:$('side').value,meridian:$('meridian').value};
+  const query=new URLSearchParams({view:state.view,part:state.part,side:state.side,meridian:state.meridian});
+  history.replaceState(null,'','#'+encodeURIComponent(selected)+'?'+query);
+  if(parent!==window)parent.postMessage({type:'z-atlas:state',state},location.protocol==='file:'?'*':location.origin);
+}
+function restoreAtlasState(name,state={}){
+  restoringState=true;
+  try{selectPoint(name);for(const [id,key] of [['view','view'],['region','part'],['side','side'],['meridian','meridian']])if([...$(id).options].some(o=>o.value===state[key]))$(id).value=state[key];
+    if(state.view||state.part)focusRegion();
+    renderMarkers();renderer.domElement.dataset.selectedSide=$('side').value;
+  }finally{restoringState=false;publishAtlasState();}
+}
+['view','region','side','meridian'].forEach(id=>$(id).addEventListener('change',publishAtlasState));
+$('reset').addEventListener('click',publishAtlasState);
+$('model').tabIndex=0;$('model').setAttribute('aria-keyshortcuts','ArrowUp ArrowDown ArrowLeft ArrowRight + -');
+$('model').setAttribute('aria-label','人体图谱；方向键旋转，加减键缩放，Escape退出菜单');
+$('model').addEventListener('keydown',event=>{
+  if(!ready||!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','+','=','-'].includes(event.key))return;
+  event.preventDefault();const offset=camera.position.clone().sub(controls.target),spherical=new THREE.Spherical().setFromVector3(offset);
+  if(event.key==='ArrowLeft')spherical.theta-=.12;if(event.key==='ArrowRight')spherical.theta+=.12;
+  if(event.key==='ArrowUp')spherical.phi-=.12;if(event.key==='ArrowDown')spherical.phi+=.12;
+  if(['+','='].includes(event.key))spherical.radius*=.9;if(event.key==='-')spherical.radius*=1.1;
+  spherical.radius=THREE.MathUtils.clamp(spherical.radius,controls.minDistance,controls.maxDistance);spherical.makeSafe();
+  camera.position.copy(controls.target).add(new THREE.Vector3().setFromSpherical(spherical));controls.update();viewMode='manual';markersDirty=true;
+});
 async function init(){
   try{
     const response=await fetch(BASE+'manifest.json');if(!response.ok)throw new Error('模型清单不可用');manifest=await response.json();
     modelId='z-anatomy:'+manifest.layers.skin.sha256;
     try {
-      const candidates=await fetch('z-anatomy-362.json?v=1');
-      if(!candidates.ok)throw new Error('候选文件不可用');
-      const data=await candidates.json();
+      const data=await loadJsonWithProgress('z-anatomy-362.json?v=1','穴位数据');
       if(data.modelId!==modelId||data.catalogue?.length!==records.length)throw new Error('候选数据与当前模型/目录不匹配');
       const extraResponse=await fetch('z-anatomy-extra.json?v=review2');
       if(!extraResponse.ok)throw new Error('经外奇穴补充目录不可用');
@@ -578,7 +614,7 @@ async function init(){
       batch=data;const count=Object.values(data.points).filter(p=>Object.keys(p.sides).length>0).length,total=data.catalogue.length,placements=Object.values(data.points).reduce((sum,p)=>sum+Object.keys(p.sides).length,0);
       const proxy=Object.values(data.points).filter(p=>p.rule.surfaceRole?.startsWith('external-proxy')).length;
       $('batchStatus').textContent=`362经穴＋${extra.standardCatalogueCount||5}项国标奇穴目录，另含补充参考。${count}项有3D坐标，共${placements}个落点；其余可查定位文字。${proxy?`${proxy}项外部参照位置已单独标识。`:''}`;
-    } catch(error){$('batchStatus').textContent='候选点加载失败；仅显示本机草稿。';console.error(error);}
+    } catch(error){$('batchStatus').textContent='坐标数据加载失败；可查看文字定位或重试。';window.atlasRecovery?.show('坐标数据加载失败，可重试或使用文字定位。');console.error(error);}
     try{const saved=JSON.parse(localStorage.getItem('z-anatomy-draft:'+modelId)||'null');if(saved?.points&&saved?.rulers)drafts=saved;}catch{status('未读取到有效草稿；可以导入已导出的 JSON。');}
     $('pointSuggestions').innerHTML=records.map(p=>`<option value="${esc(p.name)}">${esc(p.code)}</option>`).join('');
     $('meridian').insertAdjacentHTML('beforeend',[...(window.STANDARD_MERIDIANS||[]),'经外奇穴','非固定反应点'].map((name,i)=>`<option value="${i+1}">${esc(name)}</option>`).join(''));
@@ -590,7 +626,27 @@ async function init(){
     if(!records.some(p=>p.name===pendingFocus))pendingFocus=pendingFocus.replace(/穴$/,'');pendingFocus=pointAliases[pendingFocus]||pendingFocus;
     resize();full();options();selectPoint(records.some(p=>p.name===pendingFocus)?pendingFocus:'中脘',{emphasize:!!pendingFocus});
     if(!pendingFocus)full();
+    if(Object.keys(pendingState).length)restoreAtlasState(selected,pendingState);else if(pendingFocus)publishAtlasState();
+    window.atlasRecovery?.ready();
     requestAnimationFrame(()=>{if(parent!==window)parent.postMessage({type:'z-atlas:ready'},location.protocol==='file:'?'*':location.origin);});
-  }catch(e){$('loadStatus').textContent='加载失败';$('loading').querySelector('span').textContent='请通过本地 HTTP 预览打开；若仍失败，请检查模型文件。';console.error(e);}
+  }catch(e){$('loadStatus').textContent='加载失败';$('loadingMessage').textContent='加载失败，请检查网络后重试，或查看文字定位。';$('loadProgress').hidden=true;window.atlasRecovery?.show('人体模型未能加载，可重试或查看文字定位。');console.error(e);}
+}
+function loadingFeedback(label,loaded=0,total=0){
+  const suffix=loaded?` · ${(loaded/1048576).toFixed(1)} MB${total?` / ${(total/1048576).toFixed(1)} MB（${Math.min(100,Math.round(loaded/total*100))}%）`:''}`:'';
+  $('loadingMessage').textContent=label+suffix;$('loadStatus').textContent=label+suffix;
+  const progress=$('loadProgress');progress.hidden=false;
+  if(total>0){progress.max=total;progress.value=loaded;}else progress.removeAttribute('value');
+}
+async function loadJsonWithProgress(url,label){
+  loadingFeedback('下载'+label);const response=await fetch(url);if(!response.ok)throw new Error(label+'加载失败');
+  if(!response.body)return response.json();
+  // Content-Length may describe compressed transfer bytes; do not use it as decoded JSON size.
+  const total=response.headers.get('content-encoding')?0:Number(response.headers.get('content-length'))||0;
+  const reader=response.body.getReader(),chunks=[];let loaded=0;
+  for(;;){const {done,value}=await reader.read();if(done)break;chunks.push(value);loaded+=value.byteLength;loadingFeedback('下载'+label,loaded,total);}
+  loadingFeedback(label+'下载完成，正在解析');
+  await new Promise(resolve=>requestAnimationFrame(resolve));
+  const bytes=new Uint8Array(loaded);let offset=0;for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.length;}
+  return JSON.parse(new TextDecoder().decode(bytes));
 }
 init();

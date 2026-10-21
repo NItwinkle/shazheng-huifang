@@ -27,6 +27,8 @@ let activeVariant = 0;
 let activeInitial = null;
 let visibleCount = PAGE_SIZE;
 let atlasRendered = false;
+let atlasOrigin = null;
+let restoreDiseaseScroll = null;
 
 const escapeHtml = (value = '') => String(value).replace(/[&<>'"]/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[character]));
 const cleanFigureRefs = value => String(value ?? '').replace(/[（(]\s*(?:参见|见|详见)\s*图[^）)]*[）)]/g,'');
@@ -34,13 +36,17 @@ for(const disease of diseases){
   disease.summary=cleanFigureRefs(disease.summary);
   for(const variant of disease.variants||[])for(const field of variant.fields||[])field.body=cleanFigureRefs(field.body);
 }
-const standardPointNames = [...new Set((window.STANDARD_ACUPOINTS || []).map(point => point[0]))].sort((a, b) => b.length - a.length);
+const standardPointNames = [...new Set([...(window.STANDARD_ACUPOINTS || []).map(point => point[0]),...(window.EXTRA_POINT_NAMES || [])])].sort((a, b) => b.length - a.length);
 const pointPattern = standardPointNames.length ? new RegExp(standardPointNames.map(name => name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'), 'g') : null;
 
 function linkedPoints(body) {
   if (!pointPattern) return escapeHtml(body);
   let result = '', last = 0;
   for (const match of body.matchAll(pointPattern)) {
+    // A meridian or organ name is not automatically a reference to the homonymous extra point.
+    const after=body.slice(match.index+match[0].length);
+    if(match[0]==='太阳'&&/^(?:(?:膀胱|小肠)?经)/.test(after))continue;
+    if(['子宫','胆囊','阑尾'].includes(match[0])&&!/^穴/.test(after))continue;
     result += escapeHtml(body.slice(last, match.index));
     result += `<a class="knowledge-link" href="#/atlas/${encodeURIComponent(match[0])}" title="在穴位图谱查看${escapeHtml(match[0])}">${escapeHtml(match[0])}</a>`;
     last = match.index + match[0].length;
@@ -161,7 +167,7 @@ function renderHome(query = '') {
       ${matches.length ? `<div class="disease-grid">${visible.map(item => `
         <a class="disease-link" href="#/disease/${item.id}">
           <div><strong>${highlightName(item.name, needle)}</strong><p>${escapeHtml(item.summary)}</p></div>
-          <small>${item.variants.length > 1 ? `${item.variants.length} 条知识` : '查看知识'} →</small>
+          <small>${escapeHtml(bookNames[item.book] || '')} · ${item.variants.length > 1 ? `${item.variants.length} 条知识` : '查看知识'} →</small>
         </a>`).join('')}</div>${matches.length > visible.length ? '<button type="button" class="load-more">加载更多</button>' : ''}` : `<div class="empty">${needle ? `没有找到“${escapeHtml(query)}”。请尝试其他疾病名称。` : '这一首字母下暂无疾病。'}</div>`}
     </section>`;
   app.querySelectorAll('[data-initial]').forEach(button => button.addEventListener('click', () => {
@@ -206,11 +212,19 @@ function renderDisease(id) {
   const tabs = item.variants.length > 1 ? `<div class="variant-tabs" role="tablist" aria-label="选择分型或知识">${item.variants.map((entry, index) => `<button role="tab" aria-selected="${index === activeVariant}" class="${index === activeVariant ? 'active' : ''}" data-variant="${index}">${escapeHtml(entry.label)}</button>`).join('')}</div>` : '';
   app.innerHTML = `
     <div class="breadcrumb"><a class="back-index" href="${activeBook === null ? '#/' : `#/book/${activeBook}`}">← 返回病症索引</a><span>${escapeHtml(item.name)}</span></div>
-    <section class="detail-hero"><p class="eyebrow">痧证汇方</p><h1>${escapeHtml(item.name)}</h1></section>
+    <section class="detail-hero"><p class="eyebrow">痧证汇方 · ${escapeHtml(bookNames[item.book] || '')}</p><h1>${escapeHtml(item.name)}</h1></section>
     ${tabs}
     <article class="detail-card">${orderedFields(variant.fields).map(field => `<section class="content-section tone-${fieldTone(field.title)}${field.body.length > 120 ? ' long-copy' : ''}"><h2>${escapeHtml(field.title)}</h2><p>${renderBody(field.body, field.title)}</p></section>`).join('')}</article>
     ${relatedTerms.length ? `<section class="related-knowledge"><h2>文中相关词条</h2><div>${relatedTerms.map(term => `<a href="#/glossary/${encodeURIComponent(term.title)}">${escapeHtml(term.title)} →</a>`).join('')}</div></section>` : ''}
     <div class="detail-actions"><button type="button" id="addCurrentToCompare">＋ 加入方案对比</button><a class="compare-view-btn" href="#/compare">查看对比 <span>→</span></a></div>`;
+  const copyButton=document.createElement('button');copyButton.type='button';copyButton.textContent='复制本方案';copyButton.id='copyCurrentPlan';
+  const copyStatus=document.createElement('span');copyStatus.setAttribute('role','status');
+  app.querySelector('.detail-actions').append(copyButton,copyStatus);
+  copyButton.addEventListener('click',async()=>{
+    const text=[item.name+' · '+(variant.label||'当前知识'),bookNames[item.book],...orderedFields(variant.fields).map(f=>f.title+'\n'+f.body),'仅供知识学习，不能替代医师诊断与治疗。'].join('\n\n');
+    try{await navigator.clipboard.writeText(text);copyStatus.textContent='已复制当前分型';}
+    catch{const dialog=document.createElement('dialog'),area=document.createElement('textarea'),close=document.createElement('button');dialog.className='copy-plan-dialog';area.value=text;area.readOnly=true;area.setAttribute('aria-label','当前方案文本');close.textContent='关闭';close.addEventListener('click',()=>dialog.close());dialog.append('无法自动复制，请选中文本后复制：',area,close);document.body.append(dialog);dialog.addEventListener('close',()=>dialog.remove());dialog.showModal();area.focus();area.select();}
+  });
   app.querySelector('#addCurrentToCompare').addEventListener('click', event => {
     const status = window.SITE_FEATURES.addToCompare(id, activeVariant);
     event.currentTarget.textContent = status === 'added' ? '已加入对比' : status === 'exists' ? '已在对比中' : '已选满 3 条';
@@ -223,7 +237,7 @@ function renderDisease(id) {
 
 function route() {
   const match = location.hash.match(/^#\/disease\/(.+)$/);
-  const atlasMatch = location.hash.match(/^#\/atlas(?:\/(.+))?$/);
+  const atlasMatch = location.hash.split('?')[0].match(/^#\/atlas(?:\/(.+))?$/);
   const glossaryMatch = location.hash.match(/^#\/glossary(?:\/(.+))?$/);
   const bookMatch = location.hash.match(/^#\/book\/([1-5])$/);
   const nextBook = bookMatch ? Number(bookMatch[1]) : null;
@@ -238,6 +252,13 @@ function route() {
     const focusName = atlasMatch[1] ? decodeURIComponent(atlasMatch[1]) : '';
     if (!atlasRendered) { window.SITE_FEATURES.renderAtlas(atlasApp, focusName); atlasRendered = true; }
     else if (focusName) window.SITE_FEATURES.focusAtlasPoint(focusName);
+    atlasApp.querySelector('.atlas-return')?.remove();
+    if(atlasOrigin){
+      const back=document.createElement('a');back.className='atlas-return';back.href=atlasOrigin.hash;
+      back.textContent=`← 返回${atlasOrigin.name} · ${atlasOrigin.label || '原方案'}`;
+      back.addEventListener('click',()=>{activeVariant=atlasOrigin.variant;activeBook=atlasOrigin.book;restoreDiseaseScroll=atlasOrigin.scroll;});
+      atlasApp.prepend(back);
+    }
     document.title = '穴位图谱｜痧证汇方';
     if (focusName) requestAnimationFrame(() => atlasApp.querySelector('.atlas3d-layout')?.scrollIntoView({block:'start'}));
   }
@@ -247,7 +268,7 @@ function route() {
   const section = atlasMatch ? 'atlas' : glossaryMatch ? 'glossary' : location.hash === '#/compare' ? 'compare' : 'home';
   document.querySelectorAll('[data-nav]').forEach(link => { link.classList.toggle('active', link.dataset.nav === section); if (link.dataset.nav === section) link.setAttribute('aria-current','page'); else link.removeAttribute('aria-current'); });
   window.SITE_FEATURES.updateBadge();
-  if(!glossaryMatch?.[1]){requestAnimationFrame(()=>window.scrollTo({top:0,left:0,behavior:'instant'}));}
+  if(!glossaryMatch?.[1]){const top=match&&restoreDiseaseScroll!==null?restoreDiseaseScroll:0;restoreDiseaseScroll=null;requestAnimationFrame(()=>window.scrollTo({top,left:0,behavior:'instant'}));}
   const activePage = atlasMatch ? atlasApp : app;
   // A growing mobile atlas iframe must not be the focused outer main: some
   // browsers re-scroll that focused box as its height changes after loading.
@@ -256,6 +277,14 @@ function route() {
   void activePage.offsetWidth;
   activePage.classList.add('page-enter');
 }
+
+app.addEventListener('click',event=>{
+  const link=event.target.closest('a.knowledge-link');
+  const match=location.hash.match(/^#\/disease\/(.+)$/);
+  if(!link||!match)return;
+  const item=diseases.find(d=>d.id===match[1]);if(!item)return;
+  atlasOrigin={hash:location.hash,name:item.name,variant:activeVariant,label:item.variants[activeVariant]?.label,book:activeBook,scroll:window.scrollY};
+});
 
 search.addEventListener('input', () => {
   buildSuggestions(search.value);

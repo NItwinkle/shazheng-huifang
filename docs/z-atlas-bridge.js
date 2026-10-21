@@ -2,12 +2,12 @@
 window.renderZAnatomyAtlas = function(target, focusName) {
   target.replaceChildren();
   const frame = document.createElement('iframe');
-  frame.src = 'z-atlas.html?revision=toptools1' + (focusName ? '#' + encodeURIComponent(focusName) : '');
+  frame.src = 'z-atlas.html?revision=review5' + (focusName ? '#' + encodeURIComponent(focusName) + (location.hash.includes('?')?'?'+location.hash.split('?')[1]:'') : '');
   frame.title = 'Z-Anatomy 解剖模型与穴位重新标定';
   frame.style.cssText = 'display:block;width:100%;height:calc(100dvh - 180px);min-height:400px;border:0';
   frame.allow = 'fullscreen';
   const send = message => frame.contentWindow?.postMessage(message, location.protocol === 'file:' ? '*' : location.origin);
-  const desktopHeight=()=>Math.max(400,window.innerHeight-(document.querySelector('.site-header')?.offsetHeight||0)-(parseFloat(getComputedStyle(target).paddingTop)||0)-16);
+  const desktopHeight=()=>Math.max(400,window.innerHeight-(document.querySelector('.site-header')?.offsetHeight||0)-(parseFloat(getComputedStyle(target).paddingTop)||0)-(target.querySelector('.atlas-return')?.offsetHeight||0)-(target.querySelector('.atlas-return')?12:0)-16);
   const sendViewport=()=>send({type:'z-atlas:viewport',height:window.innerHeight});
   let paused=false,childReady=false,entering=true,interacted=false,settleFrame=0;
   const interruptEntry=event=>{if(event.isTrusted){interacted=true;entering=false;cancelAnimationFrame(settleFrame);}};
@@ -24,6 +24,13 @@ window.renderZAnatomyAtlas = function(target, focusName) {
     if(event.source!==frame.contentWindow||(location.protocol!=='file:'&&event.origin!==location.origin))return;
     if(event.data?.type==='z-atlas:interaction'){interacted=true;entering=false;cancelAnimationFrame(settleFrame);}
     if(event.data?.type==='z-atlas:ready'){childReady=true;settleEntry();}
+    if(event.data?.type==='z-atlas:home'){location.hash='#/';}
+    if(event.data?.type==='z-atlas:state'&&location.hash.startsWith('#/atlas')){
+      const state=event.data.state;if(!state||typeof state.name!=='string')return;
+      const query=new URLSearchParams();for(const key of ['view','part','side','meridian'])if(typeof state[key]==='string')query.set(key,state[key]);
+      history.replaceState(null,'','#/atlas/'+encodeURIComponent(state.name)+'?'+query);
+      frame.dataset.focus=state.name;
+    }
     if(event.data?.type==='z-atlas:height'&&Number.isFinite(event.data.height)&&event.data.height>0) {
       // Ignore delayed mobile-height messages once the frame is desktop-wide.
       // Otherwise the tall mobile document can remain inside a clipped desktop

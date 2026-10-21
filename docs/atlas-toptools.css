@@ -1,4 +1,5 @@
 /* One command deck above the model; a reading-only information rail. */
+.loading progress{width:220px;max-width:70%;height:6px;accent-color:#c2a569}.loading small{font-size:10px;color:#a4b5a4;letter-spacing:0;max-width:80%;text-align:center}
 .toolbar .atlas-heading{order:0}.toolbar .browse-controls{order:1}.toolbar .atlas-functions{order:2}.atlas-functions .model-viewbar label{white-space:nowrap}
 .toolbar{position:relative;z-index:20;flex-wrap:wrap;padding:16px 20px 0;gap:16px 30px;border:1px solid #cbd4c3;border-top:2px solid #a58a55;border-radius:12px;background:linear-gradient(110deg,#fafaf3,#edf2e7);box-shadow:0 5px 18px #263e3708}
 .toolbar .browse-controls{margin-left:auto;flex:0 1 550px}.toolbar .atlas-heading{min-width:150px}
