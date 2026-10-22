@@ -614,7 +614,7 @@ async function init(){
       batch=data;const count=Object.values(data.points).filter(p=>Object.keys(p.sides).length>0).length,total=data.catalogue.length,placements=Object.values(data.points).reduce((sum,p)=>sum+Object.keys(p.sides).length,0);
       const proxy=Object.values(data.points).filter(p=>p.rule.surfaceRole?.startsWith('external-proxy')).length;
       $('batchStatus').textContent=`362经穴＋${extra.standardCatalogueCount||5}项国标奇穴目录，另含补充参考。${count}项有3D坐标，共${placements}个落点；其余可查定位文字。${proxy?`${proxy}项外部参照位置已单独标识。`:''}`;
-    } catch(error){$('batchStatus').textContent='坐标数据加载失败；可查看文字定位或重试。';window.atlasRecovery?.show('坐标数据加载失败，可重试或使用文字定位。');console.error(error);}
+    } catch(error){$('batchStatus').textContent='坐标数据未载入。';window.atlasRecovery?.show('坐标数据加载失败，可重试或使用文字定位。');console.error(error);}
     try{const saved=JSON.parse(localStorage.getItem('z-anatomy-draft:'+modelId)||'null');if(saved?.points&&saved?.rulers)drafts=saved;}catch{status('未读取到有效草稿；可以导入已导出的 JSON。');}
     $('pointSuggestions').innerHTML=records.map(p=>`<option value="${esc(p.name)}">${esc(p.code)}</option>`).join('');
     $('meridian').insertAdjacentHTML('beforeend',[...(window.STANDARD_MERIDIANS||[]),'经外奇穴','非固定反应点'].map((name,i)=>`<option value="${i+1}">${esc(name)}</option>`).join(''));
@@ -629,7 +629,7 @@ async function init(){
     if(Object.keys(pendingState).length)restoreAtlasState(selected,pendingState);else if(pendingFocus)publishAtlasState();
     window.atlasRecovery?.ready();
     requestAnimationFrame(()=>{if(parent!==window)parent.postMessage({type:'z-atlas:ready'},location.protocol==='file:'?'*':location.origin);});
-  }catch(e){$('loadStatus').textContent='加载失败';$('loadingMessage').textContent='加载失败，请检查网络后重试，或查看文字定位。';$('loadProgress').hidden=true;window.atlasRecovery?.show('人体模型未能加载，可重试或查看文字定位。');console.error(e);}
+  }catch(e){$('loadStatus').textContent='模型未就绪';$('loadProgress').hidden=true;window.atlasRecovery?.show('人体模型未能加载，可重试或查看文字定位。');console.error(e);}
 }
 function loadingFeedback(label,loaded=0,total=0){
   const suffix=loaded?` · ${(loaded/1048576).toFixed(1)} MB${total?` / ${(total/1048576).toFixed(1)} MB（${Math.min(100,Math.round(loaded/total*100))}%）`:''}`:'';

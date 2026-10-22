@@ -29,6 +29,9 @@ let visibleCount = PAGE_SIZE;
 let atlasRendered = false;
 let atlasOrigin = null;
 let restoreDiseaseScroll = null;
+let restoreDiseaseReading = null;
+let readingInteraction = 0;
+['wheel','touchstart','pointerdown','keydown'].forEach(type => window.addEventListener(type,()=>{readingInteraction++;},{passive:true}));
 
 const escapeHtml = (value = '') => String(value).replace(/[&<>'"]/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[character]));
 const cleanFigureRefs = value => String(value ?? '').replace(/[（(]\s*(?:参见|见|详见)\s*图[^）)]*[）)]/g,'');
@@ -235,6 +238,21 @@ function renderDisease(id) {
   }));
 }
 
+function restoreReadingPosition(saved, hash) {
+  const interaction=readingInteraction;
+  const apply=()=>{
+    if(location.hash!==hash||readingInteraction!==interaction)return;
+    const section=app.querySelectorAll('.content-section')[saved.section];
+    const top=section ? window.scrollY+section.getBoundingClientRect().top-saved.offset : saved.scroll;
+    window.scrollTo({top,left:0,behavior:'instant'});
+  };
+  requestAnimationFrame(apply);
+  // Restore after layout and the page-entry transform have settled, not only
+  // against the temporary pre-font/pre-animation document height.
+  Promise.all([document.fonts?.ready, ...app.getAnimations().map(a=>a.finished.catch(()=>{}))])
+    .then(()=>requestAnimationFrame(()=>requestAnimationFrame(apply)));
+}
+
 function route() {
   const match = location.hash.match(/^#\/disease\/(.+)$/);
   const atlasMatch = location.hash.split('?')[0].match(/^#\/atlas(?:\/(.+))?$/);
@@ -246,7 +264,10 @@ function route() {
   app.hidden = !!atlasMatch;
   atlasApp.hidden = !atlasMatch;
   window.__atlas3d?.setPaused(!atlasMatch);
-  if (match) renderDisease(match[1]);
+  if (match) {
+    if(restoreDiseaseReading)activeVariant=restoreDiseaseReading.variant;
+    renderDisease(match[1]);
+  }
   else if (atlasMatch) {
     syncBookFilterControl();
     const focusName = atlasMatch[1] ? decodeURIComponent(atlasMatch[1]) : '';
@@ -256,7 +277,7 @@ function route() {
     if(atlasOrigin){
       const back=document.createElement('a');back.className='atlas-return';back.href=atlasOrigin.hash;
       back.textContent=`← 返回${atlasOrigin.name} · ${atlasOrigin.label || '原方案'}`;
-      back.addEventListener('click',()=>{activeVariant=atlasOrigin.variant;activeBook=atlasOrigin.book;restoreDiseaseScroll=atlasOrigin.scroll;});
+      back.addEventListener('click',()=>{activeBook=atlasOrigin.book;restoreDiseaseScroll=atlasOrigin.scroll;restoreDiseaseReading={...atlasOrigin.reading,scroll:atlasOrigin.scroll,variant:atlasOrigin.variant};});
       atlasApp.prepend(back);
     }
     document.title = '穴位图谱｜痧证汇方';
@@ -276,6 +297,7 @@ function route() {
   activePage.classList.remove('page-enter');
   void activePage.offsetWidth;
   activePage.classList.add('page-enter');
+  if(match&&restoreDiseaseReading){const saved=restoreDiseaseReading;restoreDiseaseReading=null;restoreReadingPosition(saved,location.hash);}
 }
 
 app.addEventListener('click',event=>{
@@ -283,7 +305,9 @@ app.addEventListener('click',event=>{
   const match=location.hash.match(/^#\/disease\/(.+)$/);
   if(!link||!match)return;
   const item=diseases.find(d=>d.id===match[1]);if(!item)return;
-  atlasOrigin={hash:location.hash,name:item.name,variant:activeVariant,label:item.variants[activeVariant]?.label,book:activeBook,scroll:window.scrollY};
+  const section=link.closest('.content-section');
+  atlasOrigin={hash:location.hash,name:item.name,variant:activeVariant,label:item.variants[activeVariant]?.label,book:activeBook,scroll:window.scrollY,
+    reading:{section:[...app.querySelectorAll('.content-section')].indexOf(section),offset:section?.getBoundingClientRect().top||0}};
 });
 
 search.addEventListener('input', () => {

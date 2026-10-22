@@ -2,7 +2,7 @@
 window.renderZAnatomyAtlas = function(target, focusName) {
   target.replaceChildren();
   const frame = document.createElement('iframe');
-  frame.src = 'z-atlas.html?revision=review5' + (focusName ? '#' + encodeURIComponent(focusName) + (location.hash.includes('?')?'?'+location.hash.split('?')[1]:'') : '');
+  frame.src = 'z-atlas.html?revision=review6' + (focusName ? '#' + encodeURIComponent(focusName) + (location.hash.includes('?')?'?'+location.hash.split('?')[1]:'') : '');
   frame.title = 'Z-Anatomy 解剖模型与穴位重新标定';
   frame.style.cssText = 'display:block;width:100%;height:calc(100dvh - 180px);min-height:400px;border:0';
   frame.allow = 'fullscreen';
